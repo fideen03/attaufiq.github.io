@@ -1,0 +1,41 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+header {
+    background: #024;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+.hero {
+    background: url('https://almubaarokmanggisan.ponpes.id/wp-content/uploads/2023/05/IMG_20230523_153821-1024x576.jpg') center/cover no-repeat;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 4px #000;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #002;
+    color: white;
+}
