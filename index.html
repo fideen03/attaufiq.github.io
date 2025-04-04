@@ -8,9 +8,10 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
     }
 
@@ -24,6 +25,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      transition: opacity 0.5s ease-out;
     }
 
     .spinner {
@@ -43,7 +45,7 @@
     /* Konten Utama */
     .main-content {
       display: none;
-      background: url('background.png') no-repeat center center/cover;
+      background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center/cover;
       height: 100vh;
       color: white;
       text-align: center;
@@ -57,7 +59,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
       z-index: 1;
     }
 
@@ -75,17 +77,25 @@
       color: black;
       text-decoration: none;
       border-radius: 5px;
+      transition: 0.3s;
     }
 
+    .buttons a:hover {
+      background: darkgoldenrod;
+    }
+
+    /* Menu */
     .menu {
       position: absolute;
       top: 20px; right: 20px;
       background: rgba(255, 255, 255, 0.3);
       padding: 10px;
       border-radius: 5px;
+      cursor: pointer;
       z-index: 3;
     }
 
+    /* Footer */
     footer {
       background: #111;
       color: white;
@@ -161,6 +171,14 @@
       color: gray;
       padding-top: 20px;
     }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -182,7 +200,7 @@
         <a href="#">Login Dakwah Santri</a>
       </div>
     </div>
-    <div class="menu">☰</div>
+    <div class="menu" onclick="toggleMenu()">☰</div>
 
     <footer>
       <div class="footer-container">
@@ -204,29 +222,37 @@
             <li>Madrasah Ibtidaiyah</li>
             <li>Madrasah Tsanawiyah</li>
             <li>Madrasah Aliyah</li>
-             </ul>
+          </ul>
         </div>
         <div class="footer-section">
-          <h3>Mau Update Informasi Terbaru Dari Kami?</h3>
-          <p>Silahkan subscribe untuk berlangganan artikel, berita, dan informasi terbaru dari kami.</p>
+          <h3>Berlangganan Informasi</h3>
+          <p>Masukkan email Anda untuk mendapatkan berita terbaru.</p>
           <input type="email" placeholder="Masukkan email" />
           <button>Subscribe</button>
         </div>
       </div>
       <div class="copyright">
-        &copy; Copyright <strong>Ponpes At Taufiq.</strong> All Rights Reserved
+        &copy; 2024 Ponpes At Taufiq. All Rights Reserved
       </div>
     </footer>
   </div>
 
   <script>
-    // Delay 5 detik untuk preloader
+    // Preloader
     window.addEventListener("load", function () {
       setTimeout(() => {
-        document.querySelector(".preloader").style.display = "none";
-        document.querySelector(".main-content").style.display = "flex";
-      }, 5000);
+        document.querySelector(".preloader").style.opacity = "0";
+        setTimeout(() => {
+          document.querySelector(".preloader").style.display = "none";
+          document.querySelector(".main-content").style.display = "flex";
+        }, 500);
+      }, 3000);
     });
+
+    // Menu Klik
+    function toggleMenu() {
+      alert("Menu akan muncul di sini!");
+    }
   </script>
 </body>
 </html>
