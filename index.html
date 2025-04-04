@@ -68,7 +68,6 @@
     }
     /* KONTEN UTAMA */
     .main-content {
-      display: none;
       height: 100vh;
       color: white;
       text-align: center;
@@ -78,6 +77,7 @@
       align-items: center;
       position: relative;
       padding: 20px;
+      background: url('background.jpg') no-repeat center center/cover;
     }
     .buttons a {
       padding: 12px 20px;
@@ -90,6 +90,13 @@
     }
     .buttons a:hover {
       background: darkgoldenrod;
+    }
+    /* FOOTER */
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
     }
   </style>
 </head>
@@ -115,7 +122,9 @@
     <div class="buttons">
       <a href="#">PSB Online</a>
     </div>
-  </div>  <script>
+  </div>  <!-- FOOTER -->  <footer>
+    <p>&copy; 2025 Pondok Pesantren At-Taufiq. Semua Hak Dilindungi.</p>
+  </footer>  <script>
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("active");
     }
