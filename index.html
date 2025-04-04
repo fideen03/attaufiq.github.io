@@ -1,32 +1,42 @@
-
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ponpes AT-TAUFIQ</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AT-TAUFIQ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
     <header>
-        <div class="logo">PONPES AT-TAUFIQ</div>
-        <nav>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo AT-TAUFIQ" class="logo">
+            <div class="title">AT-TAUFIQ</div>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <nav id="menu">
             <ul>
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Program</a></li>
-                <li><a href="#">Galeri</a></li>
-                <li><a href="#">Kontak</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
             </ul>
         </nav>
-    </header>
-    <section class="hero">
-        <h1>Selamat Datang di Ponpes AT-TAUFIQ</h1>
-        <p>Didirikan oleh KH. Abdul Mu'min Shobari & Hj. Ina Zuraidah</p>
-        <p>Berada di Bogem, Grogol, Diwek, Jombang, Jawa Timur</p>
-    </section>
-    <footer>
-        &copy; 2025 Pondok Pesantren AT-TAUFIQ
-    </footer>
+    </header><section id="home" class="hero">
+    <img src="background.jpg" alt="Pesantren" class="bg-image">
+    <div class="content">
+        <img src="guru.jpg" alt="Pimpinan" class="wow animate__fadeInUp guru-img">
+        <h1 class="wow animate__fadeIn">Selamat Datang di AT-TAUFIQ</h1>
+        <p class="wow animate__fadeIn" data-wow-delay="0.5s">Jumlah Santri: 200 | Jumlah Ustadz: 15</p>
+    </div>
+</section>
+
+<script>
+    new WOW().init();
+    function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show");
+    }
+</script>
+
 </body>
 </html>
