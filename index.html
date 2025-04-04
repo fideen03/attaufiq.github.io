@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     body {
       font-family: Arial, sans-serif;
     }
+
     /* HEADER */
     .header {
       display: flex;
@@ -33,6 +35,7 @@
       color: white;
       cursor: pointer;
     }
+
     /* MENU HAMBURGER */
     .menu {
       position: fixed;
@@ -66,6 +69,7 @@
       display: block;
       text-align: right;
     }
+
     /* KONTEN UTAMA */
     .main-content {
       height: 100vh;
@@ -77,8 +81,36 @@
       align-items: center;
       position: relative;
       padding: 20px;
-      background: url('background.jpg') no-repeat center center/cover;
+      background: url('background.png') no-repeat center center/cover;
     }
+
+    .main-content h1 {
+      animation: jumpColor 2s infinite;
+    }
+
+    @keyframes jumpColor {
+      0% {
+        transform: translateY(0);
+        color: white;
+      }
+      25% {
+        transform: translateY(-10px);
+        color: gold;
+      }
+      50% {
+        transform: translateY(0);
+        color: white;
+      }
+      75% {
+        transform: translateY(-10px);
+        color: gold;
+      }
+      100% {
+        transform: translateY(0);
+        color: white;
+      }
+    }
+
     .buttons a {
       padding: 12px 20px;
       background: gold;
@@ -91,6 +123,7 @@
     .buttons a:hover {
       background: darkgoldenrod;
     }
+
     /* FOOTER */
     footer {
       background-color: #222;
@@ -109,24 +142,36 @@
     <div class="menu-icon" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
-  </header>  <!-- MENU HAMBURGER -->  <nav class="menu" id="menu">
+  </header>
+
+  <!-- MENU HAMBURGER -->
+  <nav class="menu" id="menu">
     <span class="close-btn" onclick="toggleMenu()">&times;</span>
     <ul>
       <li><a href="#">Beranda</a></li>
       <li><a href="#">Biaya Pendaftaran</a></li>
       <li><a href="#">Syarat Pendaftaran</a></li>
     </ul>
-  </nav>  <!-- KONTEN UTAMA -->  <div class="main-content">
+  </nav>
+
+  <!-- KONTEN UTAMA -->
+  <div class="main-content">
     <h1>Ponpes At-Taufiq</h1>
     <h3>Bogem - Grogol - Diwek - Jombang - Jawa Timur</h3>
     <div class="buttons">
       <a href="#">PSB Online</a>
     </div>
-  </div>  <!-- FOOTER -->  <footer>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
     <p>&copy; 2025 Pondok Pesantren At-Taufiq. Semua Hak Dilindungi.</p>
-  </footer>  <script>
+  </footer>
+
+  <script>
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("active");
     }
-  </script></body>
+  </script>
+</body>
 </html>
