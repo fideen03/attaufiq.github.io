@@ -1,166 +1,232 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ponpes Al Mubaarok</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: url('background.jpg') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .content {
-            position: relative;
-            z-index: 2;
-            margin-top: 100px;
-        }
-        .buttons a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background: gold;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.3);
-            padding: 10px;
-            border-radius: 5px;
-        }
-        /* Footer Styling */
-        footer {
-            background: #111;
-            color: white;
-            width: 100%;
-            padding: 40px 20px;
-            text-align: left;
-        }
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin: 10px;
-        }
-        .footer-section h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .footer-section p, .footer-section ul {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 5px;
-        }
-        .footer-section input {
-            width: 80%;
-            padding: 8px;
-            margin-right: 5px;
-            border: none;
-            border-radius: 5px;
-        }
-        .footer-section button {
-            background: gold;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .social-icons {
-            margin-top: 10px;
-        }
-        .social-icons a {
-            color: white;
-            margin-right: 10px;
-            font-size: 18px;
-        }
-        .copyright {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: gray;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ponpes Al Mubaarok</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* PRELOADER */
+    .preloader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 8px solid #ccc;
+      border-top: 8px solid gold;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Konten Utama */
+    .main-content {
+      display: none;
+      background: url('background.jpg') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      margin-top: 100px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: gold;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .menu {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 3;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      width: 100%;
+      padding: 40px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+      padding: 15px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .footer-section p,
+    .footer-section ul {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 5px;
+    }
+
+    .footer-section input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .footer-section button {
+      background: gold;
+      border: none;
+      padding: 10px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 5px;
+      width: 100%;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 14px;
+      color: gray;
+      padding-top: 20px;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- PRELOADER -->
+  <div class="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- KONTEN UTAMA -->
+  <div class="main-content">
     <div class="overlay"></div>
     <div class="content">
-        <h1>PONPES AL MUBAAROK</h1>
-        <h3>Manggisan, Wonosobo, Jawa Tengah</h3>
-        <div class="buttons">
-            <a href="#">PSB Online</a>
-            <a href="#">Login Santri Baru</a>
-            <a href="#">Login Dakwah Santri</a>
-        </div>
+      <h1>PONPES AL MUBAAROK</h1>
+      <h3>Manggisan, Wonosobo, Jawa Tengah</h3>
+      <div class="buttons">
+        <a href="#">PSB Online</a>
+        <a href="#">Login Santri Baru</a>
+        <a href="#">Login Dakwah Santri</a>
+      </div>
     </div>
     <div class="menu">☰</div>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>PONPES AL MUBAAROK MANGGISAN</h3>
-                <p>Jl. Syekh Qoduddin, Manggisan Lama, Rt: 03 Rw: 08, Mudal, Mojotengah, Wonosobo, Jawa Tengah 56351</p>
-                <p><strong>Phone:</strong> (0286) 323659</p>
-                <p><strong>Email:</strong> ponpesmanggisan@gmail.com</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Jenjang Pendidikan</h3>
-                <ul>
-                    <li>Induk (Manhaj Salaf)</li>
-                    <li>PDF Wustha (SMP)</li>
-                    <li>PDF Ulya (SMA)</li>
-                    <li>Ma'had Aly Strata Satu (S1)</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Mau Update Informasi Terbaru Dari Kami?</h3>
-                <p>Silahkan subscribe untuk berlangganan artikel, berita, dan informasi terbaru dari kami.</p>
-                <input type="email" placeholder="Masukkan email">
-                <button>Subscribe</button>
-            </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>PONPES AL MUBAAROK MANGGISAN</h3>
+          <p>Jl. Syekh Qoduddin, Manggisan Lama, Rt: 03 Rw: 08, Mudal, Mojotengah, Wonosobo, Jawa Tengah 56351</p>
+          <p><strong>Phone:</strong> (0286) 323659</p>
+          <p><strong>Email:</strong> ponpesmanggisan@gmail.com</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
         </div>
-        <div class="copyright">
-            &copy; Copyright <strong>Ponpes Al Mubaarok.</strong> All Rights Reserved
+        <div class="footer-section">
+          <h3>Jenjang Pendidikan</h3>
+          <ul>
+            <li>Induk (Manhaj Salaf)</li>
+            <li>PDF Wustha (SMP)</li>
+            <li>PDF Ulya (SMA)</li>
+            <li>Ma'had Aly Strata Satu (S1)</li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3>Mau Update Informasi Terbaru Dari Kami?</h3>
+          <p>Silahkan subscribe untuk berlangganan artikel, berita, dan informasi terbaru dari kami.</p>
+          <input type="email" placeholder="Masukkan email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong>Ponpes Al Mubaarok.</strong> All Rights Reserved
+      </div>
     </footer>
+  </div>
 
+  <script>
+    // Delay 5 detik untuk preloader
+    window.addEventListener("load", function () {
+      setTimeout(() => {
+        document.querySelector(".preloader").style.display = "none";
+        document.querySelector(".main-content").style.display = "flex";
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
