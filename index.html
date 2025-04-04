@@ -1,237 +1,63 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AT-TAUFIQ</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      background-color: #0a3d62;
-      color: #fff;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-    }
-
-    .title {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-    }
-
-    .hero {
-      position: relative;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .bg-image {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-      opacity: 0.7;
-    }
-
-    .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      text-align: center;
-    }
-
-    .content h1 {
-      font-size: 52px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .content p {
-      font-size: 20px;
-    }
-
-    .guru-img {
-      width: 350px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    /* TENTANG SECTION */
-    #tentang {
-      background-color: #111;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    #tentang h2 {
-      font-size: 38px;
-      margin-bottom: 30px;
-      animation: fadeInDown 1s ease-in-out;
-    }
-
-    #tentang p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 18px;
-      line-height: 1.6;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .content h1 {
-        font-size: 36px;
-      }
-
-      .guru-img {
-        width: 250px;
-      }
-
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #0a3d62;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        padding: 10px;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponpes Al Mubaarok</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        .buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: gold;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="IMG_20250402_185237.png" alt="Logo AT-TAUFIQ" class="logo">
-      <div class="title">AT-TAUFIQ</div>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav id="menu">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#tentang">Tentang</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="home" class="hero">
-    <img src="IMG-20250319-WA0018.jpg" alt="Pesantren" class="bg-image">
+    <div class="overlay"></div>
     <div class="content">
-      <img src="1743758257734.jpg" alt="Pimpinan" class="guru-img">
-      <h1>Selamat Datang di AT-TAUFIQ</h1>
-      <p>Jumlah Santri: 200 | Jumlah Ustadz: 15</p>
+        <h1>PONPES AL MUBAAROK</h1>
+        <h3>Manggisan, Wonosobo, Jawa Tengah</h3>
+        <div class="buttons">
+            <a href="#">PSB Online</a>
+            <a href="#">Login Santri Baru</a>
+            <a href="#">Login Dakwah Santri</a>
+        </div>
     </div>
-  </section>
-
-  <section id="tentang">
-    <h2>Tentang Kami</h2>
-    <p>
-      Pondok Pesantren AT-TAUFIQ adalah lembaga pendidikan Islam yang berfokus pada pembentukan karakter santri melalui pendekatan keilmuan dan akhlak. 
-      Didirikan untuk mencetak generasi yang sholeh, cerdas, dan berakhlakul karimah. 
-      Dengan bimbingan para ustadz berpengalaman, kami memberikan lingkungan yang kondusif untuk belajar, beribadah, dan berkarya.
-    </p>
-  </section>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("show");
-    }
-  </script>
-  <!-- Footer -->
-  <footer style="background-color: #0a3d62; color: white; padding: 40px 20px; text-align: center;">
-    <div style="max-width: 900px; margin: auto;">
-      <h3 style="margin-bottom: 20px;">Hubungi Kami</h3>
-      <p style="margin-bottom: 10px;">Alamat: Jl. Pendidikan No.123, Desa Sejahtera, Kec. Damai, Kab. Harmoni</p>
-      <p style="margin-bottom: 10px;">Telepon: 0822-1234-5678</p>
-      <p style="margin-bottom: 20px;">Email: attaufiq.pesantren@gmail.com</p>
-      <div style="border: 2px solid white; border-radius: 8px; overflow: hidden; margin-top: 20px;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.58848978618!2d106.66470010781395!3d-6.229728379312425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e1d3d4a5b5%3A0x1039bfb8b0dfb7d!2sJakarta!5e0!3m2!1sen!2sid!4v1615212643796!5m2!1sen!2sid" 
-          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
-      <p style="margin-top: 20px;">&copy; 2025 Pondok Pesantren AT-TAUFIQ. All rights reserved.</p>
-    </div>
-  </footer>
+    <div class="menu">☰</div>
 </body>
 </html>
