@@ -1,26 +1,47 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Syarat Pendaftaran - Ponpes At-Taufiq</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: Arial, sans-serif;
+      background: url('background.png') no-repeat center center/cover;
+      color: white;
       text-align: center;
-      margin: 0;
       padding: 20px;
-      background-color: #f4f4f4;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 80px;
     }
     h1 {
-      color: #333;
+      font-family: 'Scheherazade New', serif;
+      font-size: 40px;
+      animation: jumpColor 2s infinite;
+    }
+    @keyframes jumpColor {
+      0%, 100% { color: white; }
+      50% { color: gold; }
     }
     table {
-      width: 80%;
-      margin: 20px auto;
+      width: 100%;
+      margin-top: 20px;
       border-collapse: collapse;
       background: white;
+      color: black;
+      border-radius: 5px;
+      overflow: hidden;
     }
     th, td {
       border: 1px solid #ddd;
@@ -29,54 +50,55 @@
     }
     th {
       background: gold;
+      color: black;
     }
     .back-btn {
       display: inline-block;
       margin-top: 20px;
-      padding: 10px 15px;
-      background: black;
-      color: white;
+      padding: 12px 20px;
+      background: gold;
+      color: black;
       text-decoration: none;
       border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
     }
     .back-btn:hover {
-      background: darkred;
+      background: darkgoldenrod;
     }
   </style>
 </head>
 <body>
-
-  <h1>Syarat Pendaftaran</h1>
-
-  <table>
-    <tr>
-      <th>No</th>
-      <th>Syarat</th>
-      <th>Keterangan</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Bersama Orang Tua/Wali</td>
-      <td>Wajib</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Fotokopi Kartu Keluarga</td>
-      <td>Wajib</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Fotokopi Akta Kelahiran</td>
-      <td>Wajib</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Pas Foto 3x4 (2 lembar)</td>
-      <td>Wajib</td>
-    </tr>
-  </table>
-
-  <a href="index.html" class="back-btn">Kembali ke Beranda</a>
-
+  <div class="container">
+    <h1>Syarat Pendaftaran</h1>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Syarat</th>
+        <th>Keterangan</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Bersama Orang Tua/Wali</td>
+        <td>Wajib</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Fotokopi Kartu Keluarga</td>
+        <td>Wajib</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Fotokopi Akta Kelahiran</td>
+        <td>Wajib</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Pas Foto 3x4 (2 lembar)</td>
+        <td>Wajib</td>
+      </tr>
+    </table>
+    <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+  </div>
 </body>
 </html>
