@@ -1,13 +1,15 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ponpes At-Taufiq</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; }
+    body { font-family: 'Poppins', sans-serif; }
+
     .header {
       display: flex;
       justify-content: space-between;
@@ -19,14 +21,22 @@
       top: 0;
       z-index: 1000;
     }
+
     .logo img { height: 40px; }
+
     .menu-icon {
-      font-size: 24px;
+      font-size: 26px;
       color: white;
       cursor: pointer;
       z-index: 1100;
       position: relative;
+      transition: transform 0.3s;
     }
+
+    .menu-icon:hover {
+      transform: scale(1.2);
+    }
+
     .menu {
       position: fixed;
       top: 0;
@@ -38,15 +48,50 @@
       transition: 0.3s;
       z-index: 1050;
       overflow-y: auto;
+      font-family: 'Poppins', sans-serif;
     }
+
     .menu.active { right: 0; }
-    .menu ul { list-style: none; padding: 0; }
-    .menu ul li { margin: 20px 0; }
+
+    .menu .logo-in-menu {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .menu .logo-in-menu img {
+      width: 120px;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu ul li {
+      margin: 20px 0;
+      opacity: 0;
+      transform: translateX(30px);
+      animation: slideIn 0.5s ease forwards;
+    }
+
+    .menu ul li:nth-child(1) { animation-delay: 0.1s; }
+    .menu ul li:nth-child(2) { animation-delay: 0.2s; }
+    .menu ul li:nth-child(3) { animation-delay: 0.3s; }
+    .menu ul li:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     .menu ul li a {
       color: white;
       text-decoration: none;
       font-size: 18px;
     }
+
     .close-btn {
       color: white;
       font-size: 24px;
@@ -54,16 +99,19 @@
       display: block;
       text-align: right;
     }
+
     .submenu {
       display: none;
       margin-top: 10px;
       padding-left: 10px;
     }
+
     .submenu a {
       display: block;
       font-size: 16px;
       margin: 5px 0;
     }
+
     .main-content {
       height: 100vh;
       color: white;
@@ -76,27 +124,33 @@
       padding: 20px;
       background: url('background.png') no-repeat center center/cover;
     }
+
     .main-content h1 {
       font-family: 'Scheherazade New', serif;
       font-size: 60px;
       animation: jumpColor 2s infinite;
     }
+
     .main-content h3 {
       font-size: 20px;
       margin-top: -5px;
       animation: blinkText 10s infinite;
     }
+
     @keyframes jumpColor {
       0%, 100% { transform: translateY(0); color: white; }
       25%, 75% { transform: translateY(-10px); color: gold; }
     }
+
     @keyframes blinkText {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
     .buttons {
       margin-top: 20px;
     }
+
     .buttons a {
       padding: 12px 20px;
       background: gold;
@@ -106,9 +160,11 @@
       font-weight: bold;
       transition: 0.3s;
     }
+
     .buttons a:hover {
       background: darkgoldenrod;
     }
+
     footer {
       background-color: #222;
       color: white;
@@ -126,8 +182,12 @@
       <i class="fas fa-bars"></i>
     </div>
   </header>
+
   <nav class="menu" id="menu">
     <span class="close-btn" onclick="toggleMenu()">&times;</span>
+    <div class="logo-in-menu">
+      <img src="logo.png" alt="Logo Ponpes">
+    </div>
     <ul>
       <li><a href="#">BERANDA</a></li>
       <li><a href="#">ADMINISTRASI</a></li>
@@ -143,6 +203,7 @@
       </li>
     </ul>
   </nav>
+
   <div class="main-content">
     <h1>AT-TAUFIQ</h1>
     <h3>Bogem Grogol Diwek Jombang</h3>
@@ -150,9 +211,11 @@
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzSEfwcwN__3z9TJOcHfaig2iS4F-nwFxlwk6ZomKwhBpxCw/viewform?pli=1">PSB Online</a>
     </div>
   </div>
+
   <footer>
     <p>&copy; 2025 Ponpes At-Taufiq</p>
   </footer>
+
   <script>
     function toggleMenu() {
       var menu = document.getElementById("menu");
