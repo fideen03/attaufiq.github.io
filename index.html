@@ -82,9 +82,18 @@
       font-size: 60px;
       animation: jumpColor 2s infinite;
     }
+    .main-content h3 {
+      font-size: 24px;
+      margin-top: -10px;
+      animation: blinkText 10s infinite;
+    }
     @keyframes jumpColor {
       0%, 100% { transform: translateY(0); color: white; }
       25%, 75% { transform: translateY(-10px); color: gold; }
+    }
+    @keyframes blinkText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
     .buttons {
       margin-top: 20px;
