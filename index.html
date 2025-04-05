@@ -7,39 +7,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&family=Poppins:wght@400;600&family=Lobster&display=swap" rel="stylesheet"/>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; }
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 15px 20px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }.logo-container {
+    body { font-family: 'Poppins', sans-serif; }.header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo img { height: 40px; margin-right: 10px; }
-
-.logo-text {
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-}
+.logo img { height: 40px; }
 
 .menu-icon {
   font-size: 26px;
   color: white;
   cursor: pointer;
   z-index: 1100;
+  position: relative;
   transition: transform 0.3s;
+  font-family: 'Lobster', cursive;
+  animation: fadeIn 1s ease-in-out;
 }
-.menu-icon:hover { transform: scale(1.2); }
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.menu-icon:hover {
+  transform: scale(1.2);
+}
 
 .menu {
   position: fixed;
@@ -52,13 +52,42 @@
   transition: 0.3s;
   z-index: 1050;
   overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
 }
 
 .menu.active { right: 0; }
 
+.menu .logo-in-menu {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu .logo-in-menu img {
+  width: 120px;
+}
+
 .menu ul {
   list-style: none;
   padding: 0;
+}
+
+.menu ul li {
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+.menu ul li:nth-child(1) { animation-delay: 0.1s; }
+.menu ul li:nth-child(2) { animation-delay: 0.2s; }
+.menu ul li:nth-child(3) { animation-delay: 0.3s; }
+.menu ul li:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .menu ul li a {
@@ -72,7 +101,38 @@
   text-align: center;
   transition: 0.3s;
 }
+
 .menu ul li a:hover {
+  background-color: darkgoldenrod;
+  color: white;
+}
+
+.close-btn {
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+  text-align: right;
+}
+
+.submenu {
+  display: none;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.submenu a {
+  display: block;
+  font-size: 16px;
+  margin: 5px 0;
+  background-color: gold;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+  color: black;
+}
+
+.submenu a:hover {
   background-color: darkgoldenrod;
   color: white;
 }
@@ -96,9 +156,24 @@
   animation: jumpColor 2s infinite;
 }
 
+.main-content h3 {
+  font-size: 20px;
+  margin-top: -5px;
+  animation: blinkText 10s infinite;
+}
+
 @keyframes jumpColor {
   0%, 100% { transform: translateY(0); color: white; }
   25%, 75% { transform: translateY(-10px); color: gold; }
+}
+
+@keyframes blinkText {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.buttons {
+  margin-top: 20px;
 }
 
 .buttons a {
@@ -110,7 +185,10 @@
   font-weight: bold;
   transition: 0.3s;
 }
-.buttons a:hover { background: darkgoldenrod; }
+
+.buttons a:hover {
+  background: darkgoldenrod;
+}
 
 footer {
   background-color: #222;
@@ -123,22 +201,30 @@ footer {
 </head>
 <body>
   <header class="header">
-    <div class="logo-container">
-      <div class="logo">
-        <img src="IMG_20250402_185237.png" alt="AT-TAUFIQ"/>
-      </div>
-      <div class="logo-text">YAYASAN MENARA TAUFIQ</div>
+    <div class="logo">
+      <img src="IMG_20250402_185237.png" alt="AT-TAUFIQ"/>
     </div>
     <div class="menu-icon" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
   </header>  <nav class="menu" id="menu">
     <span class="close-btn" onclick="toggleMenu()">&times;</span>
+    <div class="logo-in-menu">
+      <img src="IMG_20250402_185237.png" alt="Logo Ponpes"/>
+    </div>
     <ul>
       <li><a href="#">BERANDA</a></li>
       <li><a href="#">ADMINISTRASI</a></li>
       <li><a href="syarat.html">SYARAT PENDAFTARAN</a></li>
-      <li><a href="#">KONTAK</a></li>
+      <li>
+        <a href="#" onclick="toggleSubmenu(event)">KONTAK</a>
+        <div class="submenu" id="contact-submenu">
+          <a href="https://wa.me/6285646376653" target="_blank"><i class="fab fa-whatsapp"></i> | WHATSAPP</a>
+          <a href="https://www.instagram.com/attaufiq_bogem?igsh=MTZ4OTNxZmMxOWQ5MQ==" target="_blank"><i class="fab fa-instagram"></i> | INSTAGRAM</a>
+          <a href="mailto:attaufiqbogem@gmail.com"><i class="fas fa-envelope"></i> | EMAIL</a>
+          <a href="https://t.me/attaufiqbogem_bot" target="_blank"><i class="fab fa-telegram"></i> | TELEGRAM</a>
+        </div>
+      </li>
     </ul>
   </nav>  <div class="main-content">
     <h1>AT-TAUFIQ</h1>
@@ -152,6 +238,12 @@ footer {
     function toggleMenu() {
       var menu = document.getElementById("menu");
       menu.classList.toggle("active");
+    }
+
+    function toggleSubmenu(event) {
+      event.preventDefault();
+      var submenu = document.getElementById("contact-submenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     }
   </script></body>
 </html>
