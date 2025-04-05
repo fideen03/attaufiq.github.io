@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,124 +12,127 @@
     }
     body {
       font-family: Arial, sans-serif;
-    }
+    }/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.logo img {
+  height: 40px;
+}
+.menu-icon {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
 
-    /* HEADER */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 15px 20px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo img {
-      height: 40px;
-    }
-    .menu-icon {
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-    }
+/* MENU HAMBURGER */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background: black;
+  padding: 20px;
+  transition: 0.3s;
+}
+.menu.active {
+  right: 0;
+}
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+.menu ul li {
+  margin: 20px 0;
+}
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+.close-btn {
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+  text-align: right;
+}
 
-    /* MENU HAMBURGER */
-    .menu {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100vh;
-      background: black;
-      padding: 20px;
-      transition: 0.3s;
-    }
-    .menu.active {
-      right: 0;
-    }
-    .menu ul {
-      list-style: none;
-      padding: 0;
-    }
-    .menu ul li {
-      margin: 20px 0;
-    }
-    .menu ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
-    .close-btn {
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      display: block;
-      text-align: right;
-    }
+/* KONTEN UTAMA */
+.main-content {
+  height: 100vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  background: url('background.png') no-repeat center center/cover;
+}
 
-    /* KONTEN UTAMA */
-    .main-content {
-      height: 100vh;
-      color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 20px;
-      background: url('background.png') no-repeat center center/cover;
-    }
+.main-content h1 {
+  animation: jumpColor 2s infinite;
+}
 
-    .main-content h1 {
-      animation: jumpColor 2s infinite;
-    }
+@keyframes jumpColor {
+  0% {
+    transform: translateY(0);
+    color: white;
+  }
+  25% {
+    transform: translateY(-10px);
+    color: gold;
+  }
+  50% {
+    transform: translateY(0);
+    color: white;
+  }
+  75% {
+    transform: translateY(-10px);
+    color: gold;
+  }
+  100% {
+    transform: translateY(0);
+    color: white;
+  }
+}
 
-    @keyframes jumpColor {
-      0% {
-        transform: translateY(0);
-        color: white;
-      }
-      25% {
-        transform: translateY(-10px);
-        color: gold;
-      }
-      50% {
-        transform: translateY(0);
-        color: white;
-      }
-      75% {
-        transform: translateY(-10px);
-        color: gold;
-      }
-      100% {
-        transform: translateY(0);
-        color: white;
-      }
-    }
+.buttons {
+  margin-top: 20px; /* Tambahkan jarak agar tombol turun */
+}
 
-    .buttons a {
-      padding: 12px 20px;
-      background: gold;
-      color: black;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .buttons a:hover {
-      background: darkgoldenrod;
-    }
+.buttons a {
+  padding: 12px 20px;
+  background: gold;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.buttons a:hover {
+  background: darkgoldenrod;
+}
 
-    /* FOOTER */
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-    }
+/* FOOTER */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
   </style>
 </head>
 <body>
@@ -142,36 +144,24 @@
     <div class="menu-icon" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
-  </header>
-
-  <!-- MENU HAMBURGER -->
-  <nav class="menu" id="menu">
+  </header>  <!-- MENU HAMBURGER -->  <nav class="menu" id="menu">
     <span class="close-btn" onclick="toggleMenu()">&times;</span>
     <ul>
       <li><a href="#">Beranda</a></li>
       <li><a href="#">Biaya Pendaftaran</a></li>
       <li><a href="#">Syarat Pendaftaran</a></li>
     </ul>
-  </nav>
-
-  <!-- KONTEN UTAMA -->
-  <div class="main-content">
+  </nav>  <!-- KONTEN UTAMA -->  <div class="main-content">
     <h1>AT-TAUFIQ</h1>
     <h3>Bogem Grogol Diwek Jombang</h3>
     <div class="buttons">
       <a href="#">PSB Online</a>
     </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
+  </div>  <!-- FOOTER -->  <footer>
     <p>&copy; 2025 Pondok Pesantren At-Taufiq.</p>
-  </footer>
-
-  <script>
+  </footer>  <script>
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("active");
     }
-  </script>
-</body>
+  </script></body>
 </html>
