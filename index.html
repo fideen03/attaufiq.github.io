@@ -32,6 +32,8 @@
       font-size: 24px;
       color: white;
       cursor: pointer;
+      z-index: 1100;
+      position: relative;
     }
     .menu {
       position: fixed;
@@ -42,6 +44,7 @@
       background: black;
       padding: 20px;
       transition: 0.3s;
+      z-index: 1050;
     }
     .menu.active {
       right: 0;
@@ -83,8 +86,8 @@
       animation: jumpColor 2s infinite;
     }
     .main-content h3 {
-      font-size: 24px;
-      margin-top: -10px;
+      font-size: 20px;
+      margin-top: -5px;
       animation: blinkText 10s infinite;
     }
     @keyframes jumpColor {
@@ -147,7 +150,8 @@
   </footer>
   <script>
     function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("active");
     }
   </script>
 </body>
