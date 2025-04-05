@@ -1,7 +1,9 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Syarat pendaftaran santri baru Ponpes At-Taufiq Jombang. Informasi lengkap mengenai dokumen yang dibutuhkan.">
   <title>Syarat Pendaftaran - Ponpes At-Taufiq</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
@@ -23,11 +25,16 @@
       padding: 20px;
       border-radius: 10px;
       display: inline-block;
-      margin-top: 80px;
+      margin-top: 50px;
+      max-width: 800px;
+      width: 100%;
     }
     .logo {
       width: 150px;
       margin-bottom: 20px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
     }
     table {
       width: 100%;
@@ -37,6 +44,7 @@
       color: black;
       border-radius: 5px;
       overflow: hidden;
+      white-space: nowrap;
     }
     th, td {
       border: 1px solid #ddd;
@@ -69,68 +77,46 @@
     footer i {
       margin-right: 5px;
     }
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        width: 95%;
+        margin-top: 20px;
+      }
+      th, td {
+        padding: 8px;
+      }
+      .back-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="IMG_20250402_185237.png" alt="Logo Ponpes At-Taufiq" class="logo">
-    <table>
-      <tr>
-        <th>NO</th>
-        <th>PERSYARATAN</th>
-        <th>KETERANGAN</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Bersama Orang Tua/Wali</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Mengisi formulir pendaftaran online/offline</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>FotoCopy Ijazah SKHUN NISN (4 lembar)</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Pas Foto 3x4 (4 lembar)</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>FotoCopy KTP Orang Tua/Wali (4 lembar)</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>FotoCopy Akte kelahiran (4 lembar)</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>FotoCopy Kartu keluarga (4 lembar)</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>FotoCopy KIS KIP (4 lembar)</td>
-        <td>Bila Punya</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>Materai Rp.10.000</td>
-        <td>Wajib</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>Map Biru/Merah</td>
-        <td>Biru : Laki-laki | Merah : Perempuan</td>
-      </tr>
-    </table>
+    <img src="IMG_20250402_185237.png" alt="Logo Pondok Pesantren At-Taufiq Jombang" class="logo">
+    <div class="table-wrapper">
+      <table>
+        <tr>
+          <th>NO</th>
+          <th>PERSYARATAN</th>
+          <th>KETERANGAN</th>
+        </tr>
+        <tr><td>1</td><td>Bersama Orang Tua/Wali</td><td>Wajib</td></tr>
+        <tr><td>2</td><td>Mengisi formulir pendaftaran online/offline</td><td>Wajib</td></tr>
+        <tr><td>3</td><td>FotoCopy Ijazah SKHUN NISN (4 lembar)</td><td>Wajib</td></tr>
+        <tr><td>4</td><td>Pas Foto 3x4 (4 lembar)</td><td>Wajib</td></tr>
+        <tr><td>5</td><td>FotoCopy KTP Orang Tua/Wali (4 lembar)</td><td>Wajib</td></tr>
+        <tr><td>6</td><td>FotoCopy Akte kelahiran (4 lembar)</td><td>Wajib</td></tr>
+        <tr><td>7</td><td>FotoCopy Kartu keluarga (4 lembar)</td><td>Wajib</td></tr>
+        <tr><td>8</td><td>FotoCopy KIS KIP (4 lembar)</td><td>Bila Punya</td></tr>
+        <tr><td>9</td><td>Materai Rp.10.000</td><td>Wajib</td></tr>
+        <tr><td>10</td><td>Map Biru/Merah</td><td>Biru : Laki-laki | Merah : Perempuan</td></tr>
+      </table>
+    </div>
     <a href="index.html" class="back-btn">Kembali ke Beranda</a>
   </div>
   
