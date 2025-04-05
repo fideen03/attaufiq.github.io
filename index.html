@@ -6,14 +6,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Arial, sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; }
     .header {
       display: flex;
       justify-content: space-between;
@@ -25,9 +19,7 @@
       top: 0;
       z-index: 1000;
     }
-    .logo img {
-      height: 40px;
-    }
+    .logo img { height: 40px; }
     .menu-icon {
       font-size: 24px;
       color: white;
@@ -45,17 +37,11 @@
       padding: 20px;
       transition: 0.3s;
       z-index: 1050;
+      overflow-y: auto;
     }
-    .menu.active {
-      right: 0;
-    }
-    .menu ul {
-      list-style: none;
-      padding: 0;
-    }
-    .menu ul li {
-      margin: 20px 0;
-    }
+    .menu.active { right: 0; }
+    .menu ul { list-style: none; padding: 0; }
+    .menu ul li { margin: 20px 0; }
     .menu ul li a {
       color: white;
       text-decoration: none;
@@ -67,6 +53,16 @@
       cursor: pointer;
       display: block;
       text-align: right;
+    }
+    .submenu {
+      display: none;
+      margin-top: 10px;
+      padding-left: 10px;
+    }
+    .submenu a {
+      display: block;
+      font-size: 16px;
+      margin: 5px 0;
     }
     .main-content {
       height: 100vh;
@@ -136,6 +132,15 @@
       <li><a href="#">Beranda</a></li>
       <li><a href="#">Biaya Pendaftaran</a></li>
       <li><a href="syarat.html">Syarat Pendaftaran</a></li>
+      <li>
+        <a href="#" onclick="toggleSubmenu(event)">Kontak</a>
+        <div class="submenu" id="contact-submenu">
+          <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="https://instagram.com/ponpesattaufiq" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="mailto:info@attaufiq.sch.id"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://t.me/attaufiq" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+        </div>
+      </li>
     </ul>
   </nav>
   <div class="main-content">
@@ -152,6 +157,11 @@
     function toggleMenu() {
       var menu = document.getElementById("menu");
       menu.classList.toggle("active");
+    }
+    function toggleSubmenu(event) {
+      event.preventDefault();
+      var submenu = document.getElementById("contact-submenu");
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     }
   </script>
 </body>
